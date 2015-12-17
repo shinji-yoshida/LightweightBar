@@ -10,12 +10,16 @@ namespace LightweightBar {
 
 		protected void OnValidate() {
 			barModel.FixParameter();
+			FixParameter();
 			UpdateView();
+		}
+
+		void FixParameter() {
+			bar.pivot = new Vector2(0, bar.pivot.y);
 		}
 		
 		void UpdateView () {
 			bar.sizeDelta = new Vector2(fillArea.rect.width * (barModel.NormalizedValue - 1f), 0);
-			bar.offsetMin = new Vector2(0, bar.offsetMin.y);
 		}
 	}
 

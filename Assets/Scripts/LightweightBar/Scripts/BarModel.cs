@@ -14,6 +14,15 @@ namespace LightweightBar {
 			this.minValueCache = minValue;
 			this.maxValue = maxValue;
 			this.currentValue = currentValue;
+			FixParameter ();
+		}
+
+		public void ChangeParameters(float minValue, float maxValue, float currentValue) {
+			this.minValue = minValue;
+			this.minValueCache = minValue;
+			this.maxValue = maxValue;
+			this.currentValue = currentValue;
+			FixParameter ();
 		}
 
 		public float MinValue {
@@ -38,6 +47,11 @@ namespace LightweightBar {
 			get {
 				return (currentValue - minValue) / (maxValue - minValue);
 			}
+		}
+
+		public void ChangeCurrentValue(float value) {
+			this.currentValue = value;
+			Clamp ();
 		}
 
 		void Clamp() {

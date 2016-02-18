@@ -8,6 +8,16 @@ namespace LightweightBar {
 		[SerializeField] RectTransform bar;
 		[SerializeField] RectTransform fillArea;
 
+		public void ChangeParameters (float minValue, float maxValue, float currentValue) {
+			barModel.ChangeParameters (minValue, maxValue, currentValue);
+			UpdateView ();
+		}
+
+		public void ChangeCurrentValue (float value) {
+			barModel.ChangeCurrentValue (value);
+			UpdateView ();
+		}
+
 		protected void OnValidate() {
 			barModel.FixParameter();
 			FixParameter();
